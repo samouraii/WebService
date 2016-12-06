@@ -1,0 +1,8 @@
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\bin\ConnectionDb.dll.config
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\bin\ConnectionDb.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\bin\ConnectionDb.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\bin\MySql.Data.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\bin\MySql.Data.xml
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\obj\Debug\ConnectionDb.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\obj\Debug\ConnectionDb.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\ConnectionDb\obj\Debug\ConnectionDb.csprojResolveAssemblyReference.cache
