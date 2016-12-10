@@ -8,6 +8,7 @@ using System.Text;
 using ConnectionDb;
 using System.Reflection;
 using System.Security.Cryptography;
+using ConnectionDb.classe;
 
 namespace ConnectionDb
 {
@@ -37,7 +38,7 @@ namespace ConnectionDb
             ConnexionDb.initialise();
             return true;      
         }
-        public bool insert(object obj)
+        public Error insert(object obj)
         {
             ConnexionDb.initialise();
             

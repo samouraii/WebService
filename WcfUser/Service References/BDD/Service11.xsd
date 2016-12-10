@@ -9,4 +9,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Error" nillable="true" type="tns:Error" />
 </xs:schema>

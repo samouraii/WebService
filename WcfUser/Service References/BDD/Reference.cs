@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WcfUser.BDD {
+namespace WCFUser.bdd {
     using System.Runtime.Serialization;
     using System;
     
@@ -167,8 +167,69 @@ namespace WcfUser.BDD {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Error", Namespace="http://schemas.datacontract.org/2004/07/ConnectionDb.classe")]
+    [System.SerializableAttribute()]
+    public partial class Error : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int codeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string messageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int code {
+            get {
+                return this.codeField;
+            }
+            set {
+                if ((this.codeField.Equals(value) != true)) {
+                    this.codeField = value;
+                    this.RaisePropertyChanged("code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string message {
+            get {
+                return this.messageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.messageField, value) != true)) {
+                    this.messageField = value;
+                    this.RaisePropertyChanged("message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BDD.IService1")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="bdd.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
@@ -178,10 +239,10 @@ namespace WcfUser.BDD {
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        WcfUser.BDD.CompositeType GetDataUsingDataContract(WcfUser.BDD.CompositeType composite);
+        WCFUser.bdd.CompositeType GetDataUsingDataContract(WCFUser.bdd.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<WcfUser.BDD.CompositeType> GetDataUsingDataContractAsync(WcfUser.BDD.CompositeType composite);
+        System.Threading.Tasks.Task<WCFUser.bdd.CompositeType> GetDataUsingDataContractAsync(WCFUser.bdd.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/initialise", ReplyAction="http://tempuri.org/IService1/initialiseResponse")]
         bool initialise();
@@ -190,21 +251,22 @@ namespace WcfUser.BDD {
         System.Threading.Tasks.Task<bool> initialiseAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insert", ReplyAction="http://tempuri.org/IService1/insertResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfUser.BDD.CompositeType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfUser.BDD.User))]
-        bool insert(object toto);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.User))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.Error))]
+        WCFUser.bdd.Error insert(object toto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insert", ReplyAction="http://tempuri.org/IService1/insertResponse")]
-        System.Threading.Tasks.Task<bool> insertAsync(object toto);
+        System.Threading.Tasks.Task<WCFUser.bdd.Error> insertAsync(object toto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : WcfUser.BDD.IService1, System.ServiceModel.IClientChannel {
+    public interface IService1Channel : WCFUser.bdd.IService1, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<WcfUser.BDD.IService1>, WcfUser.BDD.IService1 {
+    public partial class Service1Client : System.ServiceModel.ClientBase<WCFUser.bdd.IService1>, WCFUser.bdd.IService1 {
         
         public Service1Client() {
         }
@@ -233,11 +295,11 @@ namespace WcfUser.BDD {
             return base.Channel.GetDataAsync(value);
         }
         
-        public WcfUser.BDD.CompositeType GetDataUsingDataContract(WcfUser.BDD.CompositeType composite) {
+        public WCFUser.bdd.CompositeType GetDataUsingDataContract(WCFUser.bdd.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<WcfUser.BDD.CompositeType> GetDataUsingDataContractAsync(WcfUser.BDD.CompositeType composite) {
+        public System.Threading.Tasks.Task<WCFUser.bdd.CompositeType> GetDataUsingDataContractAsync(WCFUser.bdd.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
@@ -249,11 +311,11 @@ namespace WcfUser.BDD {
             return base.Channel.initialiseAsync();
         }
         
-        public bool insert(object toto) {
+        public WCFUser.bdd.Error insert(object toto) {
             return base.Channel.insert(toto);
         }
         
-        public System.Threading.Tasks.Task<bool> insertAsync(object toto) {
+        public System.Threading.Tasks.Task<WCFUser.bdd.Error> insertAsync(object toto) {
             return base.Channel.insertAsync(toto);
         }
     }

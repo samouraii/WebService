@@ -1,5 +1,0 @@
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfUtilisateurs\bin\WpfUtilisateurs.dll.config
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfUtilisateurs\bin\WpfUtilisateurs.dll
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfUtilisateurs\bin\WpfUtilisateurs.pdb
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfUtilisateurs\obj\Debug\WpfUtilisateurs.dll
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfUtilisateurs\obj\Debug\WpfUtilisateurs.pdb

@@ -23,7 +23,7 @@ namespace ConnectionDb
 
         [OperationContract]
         [ServiceKnownType(typeof(User))]
-        bool insert(object toto);
+        Error insert(object toto);
        
 
        

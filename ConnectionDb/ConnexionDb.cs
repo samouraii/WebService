@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Web.Services;
 using System.Data.SqlClient;
 using System.Data;
+using ConnectionDb.classe;
 
 namespace ConnectionDb
 {
@@ -87,7 +88,7 @@ namespace ConnectionDb
             }
         }
 
-        public static bool insert(object obj)
+        public static Error insert(object obj)
         {
 
            
@@ -116,12 +117,14 @@ namespace ConnectionDb
                         value += ",";
                     }                    
                 }
+
                 counter++;
             }
 
+
             
             string query = "INSERT INTO "+type.Name.ToLower()+" ("+variable+") VALUES("+value+");";
-            
+            Error erreur = new Error(1, "Succes"); 
             if (OpenConnection() == true)
             {
                 try {
@@ -132,6 +135,7 @@ namespace ConnectionDb
                     {
                         PropertyInfo method = type.GetProperty(tmp);
                         cmd.Parameters.AddWithValue("@"+tmp, (String)method.GetValue(obj).ToString());
+                       // method.SetValue()
                     }
 
                     //Execute command
@@ -139,26 +143,91 @@ namespace ConnectionDb
                 }
                 catch (Exception e)
                 {
-                    return false;
+                    erreur =  new Error(0, "insertion impossible");
                 }
                 //close connection
                 finally{
                     CloseConnection();
                 }
-               
-                return true;
+
+
+                return erreur;
             }
-            return false;
+            return new Error(404, "Erreur non trouver");
         }
 
 
 
         public static bool delete(object obj)
         {
+            Type type = obj.GetType();
+            PropertyInfo method = type.GetProperty("Id");
+            
+             string value = (String)method.GetValue(obj).ToString();
+            if (value == null) return false;
+            string query = "DELETE FROM tableinfo WHERE id='"+value+"'";
+            try {
+                if (OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();                   
+                }
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
 
             return true;
         }
 
+
+        public static Error select(object obj)
+        {
+            Error err = new Error(1, "Selection Faite");
+            
+            try
+            {
+                Type type = obj.GetType();
+                string query = "SELECT * From " + type.Name.ToLower();
+               
+                List<object> test = new List<object > ();
+
+                if (OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        object monObject = Activator.CreateInstance(type);
+
+                        for (int c = 0; dataReader.FieldCount > c; c++)
+                        {
+                            
+                        }
+                    }
+
+                    
+                }
+            }
+            catch(Exception e)
+            {
+                err = new Error(3, "Impossible de selectionner");
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return err;
         }
+
+
+        }
+
 
 }

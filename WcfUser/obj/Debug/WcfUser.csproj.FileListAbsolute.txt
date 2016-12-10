@@ -1,5 +1,5 @@
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfUser\bin\WcfUser.dll.config
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfUser\bin\WcfUser.dll
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfUser\bin\WcfUser.pdb
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfUser\obj\Debug\WcfUser.dll
-C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfUser\obj\Debug\WcfUser.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\bin\WCFUser.dll.config
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\bin\WCFUser.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\bin\WCFUser.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\obj\Debug\WCFUser.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\obj\Debug\WCFUser.pdb
