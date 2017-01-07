@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="classe\Error.cs" />
     <Compile Include="classe\hash.cs" />
+    <Compile Include="classe\Client.cs" />
     <Compile Include="classe\User.cs" />
     <Compile Include="ConnexionDb.cs" />
     <Compile Include="Service1.svc.cs">

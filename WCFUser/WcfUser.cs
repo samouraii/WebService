@@ -18,9 +18,9 @@ namespace WCFUser
         [OperationContract]
         Error insert(User value);
         [OperationContract]
-        bool update(User value);
+        Error update(User value);
         [OperationContract]
-        bool delete(User value);
+        Error delete(User value);
         [OperationContract]
         User[] select();
 

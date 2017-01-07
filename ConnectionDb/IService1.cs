@@ -23,10 +23,19 @@ namespace ConnectionDb
 
         [OperationContract]
         [ServiceKnownType(typeof(User))]
+        [ServiceKnownType(typeof(Client))]
         Error insert(object toto);
-       
 
-       
+        [OperationContract]
+        [ServiceKnownType(typeof(User))]
+        [ServiceKnownType(typeof(Client))]
+        object[] select(object toto);
+        [OperationContract]
+        [ServiceKnownType(typeof(User))]
+        [ServiceKnownType(typeof(Client))]
+        Error delete(object toto);
+
+
         // TODO: Add your service operations here
     }
 

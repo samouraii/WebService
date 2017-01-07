@@ -44,7 +44,20 @@ namespace ConnectionDb
             
            return ConnexionDb.insert(obj);
         }
-    
-      
+
+        public object[] select(object obj)
+        {
+            ConnexionDb.initialise();
+             
+            return ConnexionDb.select(obj).ToArray();
+        }
+        public Error delete(object obj)
+        {
+            ConnexionDb.initialise();
+
+            return ConnexionDb.delete(obj);
+        }
+
+
     }
 }

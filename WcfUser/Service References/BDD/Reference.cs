@@ -252,12 +252,33 @@ namespace WCFUser.bdd {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insert", ReplyAction="http://tempuri.org/IService1/insertResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.User))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.Error))]
         WCFUser.bdd.Error insert(object toto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insert", ReplyAction="http://tempuri.org/IService1/insertResponse")]
         System.Threading.Tasks.Task<WCFUser.bdd.Error> insertAsync(object toto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/select", ReplyAction="http://tempuri.org/IService1/selectResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.User))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.Error))]
+        object[] select(object toto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/select", ReplyAction="http://tempuri.org/IService1/selectResponse")]
+        System.Threading.Tasks.Task<object[]> selectAsync(object toto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delete", ReplyAction="http://tempuri.org/IService1/deleteResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.CompositeType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.User))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WCFUser.bdd.Error))]
+        WCFUser.bdd.Error delete(object toto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delete", ReplyAction="http://tempuri.org/IService1/deleteResponse")]
+        System.Threading.Tasks.Task<WCFUser.bdd.Error> deleteAsync(object toto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -317,6 +338,22 @@ namespace WCFUser.bdd {
         
         public System.Threading.Tasks.Task<WCFUser.bdd.Error> insertAsync(object toto) {
             return base.Channel.insertAsync(toto);
+        }
+        
+        public object[] select(object toto) {
+            return base.Channel.select(toto);
+        }
+        
+        public System.Threading.Tasks.Task<object[]> selectAsync(object toto) {
+            return base.Channel.selectAsync(toto);
+        }
+        
+        public WCFUser.bdd.Error delete(object toto) {
+            return base.Channel.delete(toto);
+        }
+        
+        public System.Threading.Tasks.Task<WCFUser.bdd.Error> deleteAsync(object toto) {
+            return base.Channel.deleteAsync(toto);
         }
     }
 }

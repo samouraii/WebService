@@ -12,7 +12,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFUser", "WCFUser\WCFUser.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication", "WpfApplication\WpfApplication.csproj", "{12208DFA-B4DC-4204-AFE3-CB679911817B}"
 	ProjectSection(ProjectDependencies) = postProject
+		{13062E1C-4671-46C7-A0A9-67FA5648426B} = {13062E1C-4671-46C7-A0A9-67FA5648426B}
 		{189BFD21-F603-48DF-8330-726B61A9B502} = {189BFD21-F603-48DF-8330-726B61A9B502}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfClient", "WcfClient\WcfClient.csproj", "{13062E1C-4671-46C7-A0A9-67FA5648426B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E9A1BF5F-FB55-450B-BA09-897FAD4ED7E7} = {E9A1BF5F-FB55-450B-BA09-897FAD4ED7E7}
 	EndProjectSection
 EndProject
 Global
@@ -33,6 +39,10 @@ Global
 		{12208DFA-B4DC-4204-AFE3-CB679911817B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12208DFA-B4DC-4204-AFE3-CB679911817B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12208DFA-B4DC-4204-AFE3-CB679911817B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13062E1C-4671-46C7-A0A9-67FA5648426B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13062E1C-4671-46C7-A0A9-67FA5648426B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13062E1C-4671-46C7-A0A9-67FA5648426B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13062E1C-4671-46C7-A0A9-67FA5648426B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,21 +25,21 @@
   <xs:element name="updateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="updateResult" type="xs:boolean" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="updateResult" nillable="true" type="q4:Error" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="delete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="value" nillable="true" type="q4:User" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="value" nillable="true" type="q5:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="deleteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="deleteResult" type="xs:boolean" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="deleteResult" nillable="true" type="q6:Error" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -51,7 +51,7 @@
   <xs:element name="selectResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="selectResult" nillable="true" type="q5:ArrayOfUser" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="selectResult" nillable="true" type="q7:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

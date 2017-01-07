@@ -107,6 +107,9 @@
     <None Include="Service References\bdd\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\bdd\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

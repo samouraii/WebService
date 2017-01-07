@@ -100,50 +100,92 @@ namespace ConnectionDb
             string variable = "", value = "";
             int counter = 0;
             List<String> Params = new List<String>();
+            Boolean update = false;
+
+            PropertyInfo methodId = type.GetProperty("Id");
+            string id = (String)methodId.GetValue(obj).ToString();
+            int idint = 0;
+            int.TryParse(id, out idint);
+            if (id != null && idint != 0) {
+                // recherche si l'id est pas déja dans la bdd vérification en plus
+             
+                update = true;
+            }
             foreach (PropertyInfo i in propriete)
             {
                 if (i.Name.ToLower() != "id")
                 {
-                     
 
+                    
                     variable += i.Name.ToLower();
                     value += "@" + i.Name;
                     Params.Add(i.Name);
-                   
-                    //value += "'"+(String)method.GetValue(obj).ToString()+"'";
-                    if (propriete.Length - 1 > counter)
+                    if (update)
                     {
-                        variable += ",";
-                        value += ",";
+                        variable +="="+value;
+                        value = "";
+                    }
+
+                    //value += "'"+(String)method.GetValue(obj).ToString()+"'";
+                    if (propriete.Length - 1 > counter )
+                    {
+                        variable += " , ";
+                        if (!update) value += ",";
                     }                    
                 }
+               
 
                 counter++;
             }
 
 
-            
-            string query = "INSERT INTO "+type.Name.ToLower()+" ("+variable+") VALUES("+value+");";
+
+            string query;
+            if (update) query = "UPDATE " + type.Name.ToLower() + " SET "+variable +" WHERE id ='"+id+"'";
+            else query = "INSERT INTO " + type.Name.ToLower() + " (" + variable + ") VALUES(" + value + ");";
             Error erreur = new Error(1, "Succes"); 
             if (OpenConnection() == true)
             {
+                string tutu = "";
                 try {
                     //create command and assign the query and connection from the constructor
                     MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd = connection.CreateCommand();
                     cmd.CommandText = query;
                     foreach (string tmp in Params)
                     {
                         PropertyInfo method = type.GetProperty(tmp);
-                        cmd.Parameters.AddWithValue("@"+tmp, (String)method.GetValue(obj).ToString());
+                        //cmd.Parameters.Add("@" + tmp, (String)method.GetValue(obj).ToString());
+                        
+                      /*  
+                        Type o = methode.gettype .. 
+                        object test = "";
+                        switch (o.GetType().ToString())
+                        {
+                            case ("Int32"):
+                                test = (int)method.GetValue(obj);
+                                break;
+                            default:
+                                test = (String)method.GetValue(obj).ToString();
+                                break;
+                        }*/
+                        string test = (String)method.GetValue(obj).ToString();
+                        cmd.Parameters.AddWithValue("@"+tmp,test);
                        // method.SetValue()
                     }
 
                     //Execute command
+
+                    tutu = cmd.CommandText + "";
+                    cmd.Prepare();
+                    
                     cmd.ExecuteNonQuery();
+                   
                 }
+
                 catch (Exception e)
                 {
-                    erreur =  new Error(0, "insertion impossible");
+                    erreur =  new Error(0, "insertion impossible " + tutu);
                 }
                 //close connection
                 finally{
@@ -158,14 +200,14 @@ namespace ConnectionDb
 
 
 
-        public static bool delete(object obj)
+        public static Error delete(object obj)
         {
             Type type = obj.GetType();
             PropertyInfo method = type.GetProperty("Id");
             
              string value = (String)method.GetValue(obj).ToString();
-            if (value == null) return false;
-            string query = "DELETE FROM tableinfo WHERE id='"+value+"'";
+            if (value == null) return new Error(5,"pas de champ dans l'object, suprresion impossible");
+            string query = "DELETE FROM " + type.Name.ToLower() +" WHERE id='"+value+"'";
             try {
                 if (OpenConnection() == true)
                 {
@@ -175,27 +217,27 @@ namespace ConnectionDb
             }
             catch(Exception e)
             {
-                return false;
+                return new Error(500,"Une erreur inconnue est arrivé sur le serveur");
             }
             finally
             {
                 CloseConnection();
             }
 
-            return true;
+            return new Error(200, "Suppression réussie"); 
         }
 
 
-        public static Error select(object obj)
+        public static List<object> select(object obj)
         {
             Error err = new Error(1, "Selection Faite");
-            
+            List<object> test = new List<object>();
             try
             {
                 Type type = obj.GetType();
                 string query = "SELECT * From " + type.Name.ToLower();
                
-                List<object> test = new List<object > ();
+                
 
                 if (OpenConnection() == true)
                 {
@@ -207,8 +249,13 @@ namespace ConnectionDb
 
                         for (int c = 0; dataReader.FieldCount > c; c++)
                         {
+                            string text = dataReader.GetName(c);
+                            PropertyInfo method = type.GetProperty(text[0].ToString().ToUpper() + text.Remove(0,1));
+                            method.SetValue(monObject, dataReader[c]);
+
                             
                         }
+                        test.Add(monObject);
                     }
 
                     
@@ -223,7 +270,7 @@ namespace ConnectionDb
                 CloseConnection();
             }
 
-            return err;
+            return test ;
         }
 
 

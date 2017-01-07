@@ -178,16 +178,16 @@ namespace WpfApplication.WcfUser {
         System.Threading.Tasks.Task<WpfApplication.WcfUser.Error> insertAsync(WpfApplication.WcfUser.User value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/WcfUser/update", ReplyAction="http://tempuri.org/WcfUser/updateResponse")]
-        bool update(WpfApplication.WcfUser.User value);
+        WpfApplication.WcfUser.Error update(WpfApplication.WcfUser.User value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/WcfUser/update", ReplyAction="http://tempuri.org/WcfUser/updateResponse")]
-        System.Threading.Tasks.Task<bool> updateAsync(WpfApplication.WcfUser.User value);
+        System.Threading.Tasks.Task<WpfApplication.WcfUser.Error> updateAsync(WpfApplication.WcfUser.User value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/WcfUser/delete", ReplyAction="http://tempuri.org/WcfUser/deleteResponse")]
-        bool delete(WpfApplication.WcfUser.User value);
+        WpfApplication.WcfUser.Error delete(WpfApplication.WcfUser.User value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/WcfUser/delete", ReplyAction="http://tempuri.org/WcfUser/deleteResponse")]
-        System.Threading.Tasks.Task<bool> deleteAsync(WpfApplication.WcfUser.User value);
+        System.Threading.Tasks.Task<WpfApplication.WcfUser.Error> deleteAsync(WpfApplication.WcfUser.User value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/WcfUser/select", ReplyAction="http://tempuri.org/WcfUser/selectResponse")]
         WpfApplication.WcfUser.User[] select();
@@ -231,19 +231,19 @@ namespace WpfApplication.WcfUser {
             return base.Channel.insertAsync(value);
         }
         
-        public bool update(WpfApplication.WcfUser.User value) {
+        public WpfApplication.WcfUser.Error update(WpfApplication.WcfUser.User value) {
             return base.Channel.update(value);
         }
         
-        public System.Threading.Tasks.Task<bool> updateAsync(WpfApplication.WcfUser.User value) {
+        public System.Threading.Tasks.Task<WpfApplication.WcfUser.Error> updateAsync(WpfApplication.WcfUser.User value) {
             return base.Channel.updateAsync(value);
         }
         
-        public bool delete(WpfApplication.WcfUser.User value) {
+        public WpfApplication.WcfUser.Error delete(WpfApplication.WcfUser.User value) {
             return base.Channel.delete(value);
         }
         
-        public System.Threading.Tasks.Task<bool> deleteAsync(WpfApplication.WcfUser.User value) {
+        public System.Threading.Tasks.Task<WpfApplication.WcfUser.Error> deleteAsync(WpfApplication.WcfUser.User value) {
             return base.Channel.deleteAsync(value);
         }
         

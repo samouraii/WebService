@@ -57,6 +57,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DialogResult.cs" />
+    <Compile Include="Service References\wcfClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WcfUser\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +104,22 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\wcfClient\WcfClients.wsdl" />
+    <None Include="Service References\wcfClient\WcfClients.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wcfClient\WcfClients1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wcfClient\WcfClients2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wcfClient\WpfApplication.wcfClient.Client.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wcfClient\WpfApplication.wcfClient.Error.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WcfUser\wcfUser.wsdl" />
     <None Include="Service References\WcfUser\wcfUser.xsd">
       <SubType>Designer</SubType>
@@ -122,6 +144,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wcfClient\" />
     <WCFMetadataStorage Include="Service References\WcfUser\" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +158,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WcfUser\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfClient\WcfClients.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfClient\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfClient\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfClient\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -1,21 +1,30 @@
-﻿<Window x:Class="WpfApplication.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication"
+        xmlns:WcfUser="clr-namespace:WpfApplication.WcfUser" x:Class="WpfApplication.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="438.871" Width="707.132" Loaded="Window_Loaded">
-    <Grid Height="408" VerticalAlignment="Bottom">
+        Title="MainWindow" Height="495.372" Width="842.472" Loaded="Window_Loaded">
+    <Grid Height="418" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72*"/>
+            <ColumnDefinition Width="67*"/>
+        </Grid.ColumnDefinitions>
 
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="699" Margin="0,10,0,0">
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="834" Margin="0,-39,0,0" Grid.ColumnSpan="2">
             <MenuItem Header="Utilisateur" >
                 <MenuItem Header="Crée" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click"/>
+                <MenuItem Header="Modifier" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_1" />
             </MenuItem>
-            <MenuItem Header="Cut"  />
+            <MenuItem Header="Clients" >
+                <MenuItem Header="Crée" HorizontalAlignment="Left" Width="140" Click="creeClientForm" />
+                <MenuItem Header="Modifier" HorizontalAlignment="Left" Width="140"/>
+            </MenuItem>
             <MenuItem Header="Paste" />
         </Menu>
-        <Grid x:Name="UserC" HorizontalAlignment="Left" Height="318" Margin="0,90,0,0" VerticalAlignment="Top" Width="699">
+        <Grid x:Name="UserC" HorizontalAlignment="Left" Height="357" Margin="0,51,0,0" VerticalAlignment="Top" Width="834" IsHitTestVisible="True" Visibility="Hidden" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="112*"/>
                 <ColumnDefinition Width="278*"/>
@@ -23,15 +32,37 @@
             </Grid.ColumnDefinitions>
             <Label x:Name="label" Content="Utilisateur" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="112" Height="26"/>
             <Label x:Name="label1" Content="Mot de passe" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.584,-0.287" Width="112"/>
-            <Label x:Name="label1_Copy" Content="Vérification &#xD;&#xA;du mot de passe" HorizontalAlignment="Left" Margin="0,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.584,-0.287" Width="112" Height="75"/>
-            <TextBox x:Name="username" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="0,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="278" MaxLength="40" />
-            <PasswordBox x:Name="pass2" Grid.Column="1" HorizontalAlignment="Left" Margin="0,178,0,0" VerticalAlignment="Top" Width="278" Height="24" MaxLength="40" />
-            <PasswordBox x:Name="pass1" Grid.Column="1" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="278" Height="24" MaxLength="40"/>
-            <Button x:Name="button" Grid.Column="1" HorizontalAlignment="Left" Margin="74,253,0,0" VerticalAlignment="Top" Width="97" Height="30">
-                <Button x:Name="button1" Content="Button" Width="75" Click="button1_Click"/>
+            <Label x:Name="label1_Copy" Content="Vérification &#xA;du mot de passe" HorizontalAlignment="Left" Margin="0,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.584,-0.287" Width="112" Height="75"/>
+            <TextBox x:Name="username" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="0,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="278" MaxLength="40" TabIndex="1" />
+            <PasswordBox x:Name="pass2" Grid.Column="1" HorizontalAlignment="Left" Margin="0,178,0,0" VerticalAlignment="Top" Width="278" Height="24" MaxLength="40" TabIndex="3" />
+            <PasswordBox x:Name="pass1" Grid.Column="1" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="278" Height="24" MaxLength="40" TabIndex="2"/>
+            <Button x:Name="Valider" Content="valider" Grid.Column="1" HorizontalAlignment="Left" Click="button1_Click" Margin="74,253,0,0" VerticalAlignment="Top" Width="97" Height="30" TabIndex="4">
             </Button>
+            <Button x:Name="suppression" Content="Supprimer" Grid.Column="2" HorizontalAlignment="Left" Margin="0,253,0,0" VerticalAlignment="Top" Width="93" Height="30" Click="button_Click"/>
         </Grid>
-        <Label x:Name="Error" Content="" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="699" Height="39"/>
+        <Grid x:Name="UserM" HorizontalAlignment="Left" Height="364" Margin="0,23,0,0" VerticalAlignment="Top" Width="834" IsHitTestVisible="True" Visibility="Hidden" Grid.ColumnSpan="2">
+            <DataGrid x:Name="dataUser" HorizontalAlignment="Left" VerticalAlignment="Top" Height="379" Width="834" ItemsSource="{Binding Source=WcfUser.User}" AutoGenerateColumns="False" MouseDoubleClick="dataUser_MouseDoubleClick" Margin="0,10,0,-25" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding id}" Width="Auto" />
+                    <DataGridTextColumn Header="Username" Binding="{Binding username}"/>
+                    <DataGridTextColumn Header="Salt" Binding="{Binding salt}"/>
+                    <DataGridTextColumn Header="Mdp" Binding="{Binding mdp}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+        <Grid Margin="0,28,0,0" Grid.ColumnSpan="2" Name="GridClient">
+            <Button x:Name="CreeClient" Content="Valider" HorizontalAlignment="Left" Margin="278,346,0,0" VerticalAlignment="Top" Width="75" Click="ClientCree"/>
+            <Label x:Name="label2" Content="Numéro du dossier:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label3" Content="Nom de la société:" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label4" Content="Numéro de Tva:" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="clientID" HorizontalAlignment="Left" Height="23" Margin="141,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="59" UndoLimit="5"/>
+            <TextBox x:Name="clientName" HorizontalAlignment="Left" Height="23" Margin="141,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="212" UndoLimit="50"/>
+            <TextBox x:Name="clientTva" HorizontalAlignment="Left" Height="23" Margin="141,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="212" UndoLimit="50"/>
+        </Grid>
+        <Label x:Name="Error" HorizontalAlignment="Left" VerticalAlignment="Top" Width="834" Height="29" Grid.ColumnSpan="2" Margin="0,-6,0,0" Background="#FFE2DFDF">
+            
+        </Label>
     </Grid>
 
 </Window>

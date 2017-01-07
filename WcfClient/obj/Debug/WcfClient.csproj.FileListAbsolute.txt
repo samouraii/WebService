@@ -1,0 +1,5 @@
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfClient\bin\WcfClient.dll.config
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfClient\bin\WcfClient.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfClient\bin\WcfClient.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfClient\obj\Debug\WcfClient.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfClient\obj\Debug\WcfClient.pdb
