@@ -55,4 +55,60 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="insertT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="value" nillable="true" type="q8:Transaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="insertTResult" nillable="true" type="q9:Error" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="value" nillable="true" type="q10:Transaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="updateTResult" nillable="true" type="q11:Error" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="value" nillable="true" type="q12:Transaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="deleteTResult" nillable="true" type="q13:Error" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="selectT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="obj" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="selectTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConnectionDb.classe" minOccurs="0" name="selectTResult" nillable="true" type="q14:ArrayOfTransaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

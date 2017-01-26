@@ -57,7 +57,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="achat.xaml.cs">
+      <DependentUpon>achat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogResult.cs" />
+    <Compile Include="Service References\Auth\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\wcfClient\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="test.cs" />
+    <Page Include="achat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +117,22 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\Auth\Authentification.wsdl" />
+    <None Include="Service References\Auth\Authentification.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Auth\Authentification1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Auth\Authentification2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Auth\Authentification3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Auth\WpfApplication.Auth.Jeton.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\wcfClient\WcfClients.wsdl" />
     <None Include="Service References\wcfClient\WcfClients.xsd">
       <SubType>Designer</SubType>
@@ -118,6 +147,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wcfClient\WpfApplication.wcfClient.Error.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wcfClient\WpfApplication.wcfClient.Transaction.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WcfUser\wcfUser.wsdl" />
@@ -144,6 +176,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Auth\" />
     <WCFMetadataStorage Include="Service References\wcfClient\" />
     <WCFMetadataStorage Include="Service References\WcfUser\" />
   </ItemGroup>
@@ -173,6 +206,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\wcfClient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Auth\Authentification.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Auth\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Auth\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Auth\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

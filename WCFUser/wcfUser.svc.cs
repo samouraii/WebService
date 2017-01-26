@@ -26,6 +26,7 @@ namespace WCFUser
                 client = new Service1Client();
                 TimeSpan t = new TimeSpan();
                 value.salt = hash.GetMd5Hash(value.username + t.Days + "" + t.Hours + "" + t.Minutes + t.Seconds);
+                value.mdp = hash.GetMd5Hash(value.mdp + value.salt);
                 erreur = client.insert(value);
             }
             catch(Exception e)
@@ -40,7 +41,7 @@ namespace WCFUser
 
        
 
-        public User[] select()
+        public User[] select(object obj2 =null)
         {
             bdd.Service1Client client;
             User[] t = null;
@@ -48,7 +49,7 @@ namespace WCFUser
             {
                 client = new Service1Client();
 
-                 object[] y = client.select(new User());
+                 object[] y = client.select(new User(),obj2);
                 t = new User[y.Count()];
                 int compteur = 0;
                 foreach(object r in y)

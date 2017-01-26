@@ -3,3 +3,4 @@ C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCF
 C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\bin\WCFUser.pdb
 C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\obj\Debug\WCFUser.dll
 C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\obj\Debug\WCFUser.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WCFUser\obj\Debug\WCFUser.csprojResolveAssemblyReference.cache

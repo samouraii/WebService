@@ -77,9 +77,6 @@
     <None Include="Service References\bdd\Service14.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\bdd\WcfClient.bdd.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\bdd\WcfClient.bdd.Error.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -103,12 +100,12 @@
     <None Include="Service References\bdd\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\bdd\Service11.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\bdd\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Service References\bdd\WcfClient.bdd.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

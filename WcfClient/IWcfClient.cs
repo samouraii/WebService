@@ -22,6 +22,16 @@ namespace WcfClient
         [OperationContract]
         Client[] select();
 
+        [OperationContract]
+        Error insertT(Transaction value);
+        [OperationContract]
+        Error updateT(Transaction value);
+        [OperationContract]
+        Error deleteT(Transaction value);
+        [OperationContract]
+        [ServiceKnownType(typeof(Client))]
+        Transaction[] selectT(object obj = null);
+
 
         // TODO: Add your service operations here
     }

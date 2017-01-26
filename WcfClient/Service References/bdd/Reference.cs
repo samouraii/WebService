@@ -15,73 +15,15 @@ namespace WcfClient.bdd {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/ConnectionDb")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/ConnectionDb.classe")]
     [System.SerializableAttribute()]
     public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WcfClient.bdd.Client[] clientField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
@@ -102,6 +44,19 @@ namespace WcfClient.bdd {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WcfClient.bdd.Client[] client {
+            get {
+                return this.clientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.clientField, value) != true)) {
+                    this.clientField = value;
+                    this.RaisePropertyChanged("client");
+                }
             }
         }
         
@@ -183,10 +138,13 @@ namespace WcfClient.bdd {
         private string nomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string numTvaField;
+        private int numdossierField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int numdossierField;
+        private string numtvaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WcfClient.bdd.User[] userField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -225,19 +183,6 @@ namespace WcfClient.bdd {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string numTva {
-            get {
-                return this.numTvaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.numTvaField, value) != true)) {
-                    this.numTvaField = value;
-                    this.RaisePropertyChanged("numTva");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int numdossier {
             get {
                 return this.numdossierField;
@@ -246,6 +191,157 @@ namespace WcfClient.bdd {
                 if ((this.numdossierField.Equals(value) != true)) {
                     this.numdossierField = value;
                     this.RaisePropertyChanged("numdossier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string numtva {
+            get {
+                return this.numtvaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.numtvaField, value) != true)) {
+                    this.numtvaField = value;
+                    this.RaisePropertyChanged("numtva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WcfClient.bdd.User[] user {
+            get {
+                return this.userField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userField, value) != true)) {
+                    this.userField = value;
+                    this.RaisePropertyChanged("user");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Transaction", Namespace="http://schemas.datacontract.org/2004/07/ConnectionDb.classe")]
+    [System.SerializableAttribute()]
+    public partial class Transaction : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WcfClient.bdd.Transaction achatField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WcfClient.bdd.Client clientField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double prixhtvField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int tvaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string voitureField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WcfClient.bdd.Transaction achat {
+            get {
+                return this.achatField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.achatField, value) != true)) {
+                    this.achatField = value;
+                    this.RaisePropertyChanged("achat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WcfClient.bdd.Client client {
+            get {
+                return this.clientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.clientField, value) != true)) {
+                    this.clientField = value;
+                    this.RaisePropertyChanged("client");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double prixhtv {
+            get {
+                return this.prixhtvField;
+            }
+            set {
+                if ((this.prixhtvField.Equals(value) != true)) {
+                    this.prixhtvField = value;
+                    this.RaisePropertyChanged("prixhtv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int tva {
+            get {
+                return this.tvaField;
+            }
+            set {
+                if ((this.tvaField.Equals(value) != true)) {
+                    this.tvaField = value;
+                    this.RaisePropertyChanged("tva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string voiture {
+            get {
+                return this.voitureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.voitureField, value) != true)) {
+                    this.voitureField = value;
+                    this.RaisePropertyChanged("voiture");
                 }
             }
         }
@@ -331,12 +427,6 @@ namespace WcfClient.bdd {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        WcfClient.bdd.CompositeType GetDataUsingDataContract(WcfClient.bdd.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<WcfClient.bdd.CompositeType> GetDataUsingDataContractAsync(WcfClient.bdd.CompositeType composite);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/initialise", ReplyAction="http://tempuri.org/IService1/initialiseResponse")]
         bool initialise();
         
@@ -344,37 +434,49 @@ namespace WcfClient.bdd {
         System.Threading.Tasks.Task<bool> initialiseAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insert", ReplyAction="http://tempuri.org/IService1/insertResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.CompositeType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.User))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Client[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Client))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.User[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Transaction))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Error))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         WcfClient.bdd.Error insert(object toto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insert", ReplyAction="http://tempuri.org/IService1/insertResponse")]
         System.Threading.Tasks.Task<WcfClient.bdd.Error> insertAsync(object toto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/select", ReplyAction="http://tempuri.org/IService1/selectResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.CompositeType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.User))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Client[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Client))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.User[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Transaction))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Error))]
-        object[] select(object toto);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        object[] select(object toto, object obj2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/select", ReplyAction="http://tempuri.org/IService1/selectResponse")]
-        System.Threading.Tasks.Task<object[]> selectAsync(object toto);
+        System.Threading.Tasks.Task<object[]> selectAsync(object toto, object obj2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delete", ReplyAction="http://tempuri.org/IService1/deleteResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.CompositeType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.User))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Client[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Client))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.User[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Transaction))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WcfClient.bdd.Error))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         WcfClient.bdd.Error delete(object toto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delete", ReplyAction="http://tempuri.org/IService1/deleteResponse")]
         System.Threading.Tasks.Task<WcfClient.bdd.Error> deleteAsync(object toto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/selectUser", ReplyAction="http://tempuri.org/IService1/selectUserResponse")]
+        WcfClient.bdd.User selectUser(WcfClient.bdd.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/selectUser", ReplyAction="http://tempuri.org/IService1/selectUserResponse")]
+        System.Threading.Tasks.Task<WcfClient.bdd.User> selectUserAsync(WcfClient.bdd.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -412,14 +514,6 @@ namespace WcfClient.bdd {
             return base.Channel.GetDataAsync(value);
         }
         
-        public WcfClient.bdd.CompositeType GetDataUsingDataContract(WcfClient.bdd.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<WcfClient.bdd.CompositeType> GetDataUsingDataContractAsync(WcfClient.bdd.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
-        }
-        
         public bool initialise() {
             return base.Channel.initialise();
         }
@@ -436,12 +530,12 @@ namespace WcfClient.bdd {
             return base.Channel.insertAsync(toto);
         }
         
-        public object[] select(object toto) {
-            return base.Channel.select(toto);
+        public object[] select(object toto, object obj2) {
+            return base.Channel.select(toto, obj2);
         }
         
-        public System.Threading.Tasks.Task<object[]> selectAsync(object toto) {
-            return base.Channel.selectAsync(toto);
+        public System.Threading.Tasks.Task<object[]> selectAsync(object toto, object obj2) {
+            return base.Channel.selectAsync(toto, obj2);
         }
         
         public WcfClient.bdd.Error delete(object toto) {
@@ -450,6 +544,14 @@ namespace WcfClient.bdd {
         
         public System.Threading.Tasks.Task<WcfClient.bdd.Error> deleteAsync(object toto) {
             return base.Channel.deleteAsync(toto);
+        }
+        
+        public WcfClient.bdd.User selectUser(WcfClient.bdd.User user) {
+            return base.Channel.selectUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<WcfClient.bdd.User> selectUserAsync(WcfClient.bdd.User user) {
+            return base.Channel.selectUserAsync(user);
         }
     }
 }

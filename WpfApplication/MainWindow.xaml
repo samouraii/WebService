@@ -7,7 +7,7 @@
         xmlns:WcfUser="clr-namespace:WpfApplication.WcfUser" x:Class="WpfApplication.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="495.372" Width="842.472" Loaded="Window_Loaded">
-    <Grid Height="418" VerticalAlignment="Bottom">
+    <Grid x:Name="Grid" Height="418" VerticalAlignment="Bottom">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="72*"/>
             <ColumnDefinition Width="67*"/>
@@ -20,9 +20,12 @@
             </MenuItem>
             <MenuItem Header="Clients" >
                 <MenuItem Header="Crée" HorizontalAlignment="Left" Width="140" Click="creeClientForm" />
-                <MenuItem Header="Modifier" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Modifier" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_2"/>
             </MenuItem>
-            <MenuItem Header="Paste" />
+            <MenuItem Header="Transaction" >
+                <MenuItem Header="Achat/vente" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_3" />
+                <MenuItem Header="Historique" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_4" />
+            </MenuItem>
         </Menu>
         <Grid x:Name="UserC" HorizontalAlignment="Left" Height="357" Margin="0,51,0,0" VerticalAlignment="Top" Width="834" IsHitTestVisible="True" Visibility="Hidden" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -51,18 +54,41 @@
 
             </DataGrid>
         </Grid>
-        <Grid Margin="0,28,0,0" Grid.ColumnSpan="2" Name="GridClient">
+        <Grid Margin="0,28,0,0" Grid.ColumnSpan="2" Name="GridClient" Visibility="Hidden">
             <Button x:Name="CreeClient" Content="Valider" HorizontalAlignment="Left" Margin="278,346,0,0" VerticalAlignment="Top" Width="75" Click="ClientCree"/>
             <Label x:Name="label2" Content="Numéro du dossier:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label3" Content="Nom de la société:" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label4" Content="Numéro de Tva:" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="clientID" HorizontalAlignment="Left" Height="23" Margin="141,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="59" UndoLimit="5"/>
-            <TextBox x:Name="clientName" HorizontalAlignment="Left" Height="23" Margin="141,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="212" UndoLimit="50"/>
-            <TextBox x:Name="clientTva" HorizontalAlignment="Left" Height="23" Margin="141,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="212" UndoLimit="50"/>
+            <TextBox x:Name="clientID" HorizontalAlignment="Left" Height="23" Margin="141,68,0,0" TextWrapping="Wrap" Text="{Binding numdossier}" VerticalAlignment="Top" Width="59" UndoLimit="5"/>
+            <TextBox x:Name="clientName" HorizontalAlignment="Left" Height="23" Margin="141,114,0,0" TextWrapping="Wrap" Text="{Binding nom}" VerticalAlignment="Top" Width="212" UndoLimit="50"/>
+            <TextBox x:Name="clientTva" HorizontalAlignment="Left" Height="23" Margin="141,165,0,0" TextWrapping="Wrap" Text="{Binding numtva}" VerticalAlignment="Top" Width="212" UndoLimit="50"/>
+            <Button x:Name="suppressionClient" Content="Supprimer" Grid.Column="2" HorizontalAlignment="Left" Margin="0,253,0,0" VerticalAlignment="Top" Width="93" Height="30" Click="ClientSupp"/>
         </Grid>
+        <Grid x:Name="ClientM" HorizontalAlignment="Left" Height="364" Margin="0,23,0,0" VerticalAlignment="Top" Width="834" IsHitTestVisible="True" Visibility="Hidden" Grid.ColumnSpan="2">
+            <DataGrid x:Name="dataClient" HorizontalAlignment="Left" VerticalAlignment="Top" Height="379" Width="834" ItemsSource="{Binding Source=WcfClient.Client}" AutoGenerateColumns="False"  Margin="0,10,0,-25" MouseDoubleClick="dataClient_MouseDoubleClick" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding id}" Width="Auto" />
+                    <DataGridTextColumn Header="numdossier" Binding="{Binding numdossier}"/>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding nom}"/>
+                    <DataGridTextColumn Header="Numéro Tva" Binding="{Binding numtva}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+
+        <Grid Margin="0,23,0,0" Grid.ColumnSpan="2" Name="GridLogin" Visibility="Visible">
+            <TextBox x:Name="login" HorizontalAlignment="Left" Height="23" Margin="141,114,0,0" TextWrapping="Wrap" Text="login" VerticalAlignment="Top" Width="212" UndoLimit="50"/>
+            <Button x:Name="loginB" Content="Login" HorizontalAlignment="Left" Margin="141,233,0,0" VerticalAlignment="Top" Width="75" Click="Login"/>
+            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="141,168,0,0" VerticalAlignment="Top" Height="23" Width="212"/>
+
+        </Grid>
+
         <Label x:Name="Error" HorizontalAlignment="Left" VerticalAlignment="Top" Width="834" Height="29" Grid.ColumnSpan="2" Margin="0,-6,0,0" Background="#FFE2DFDF">
-            
+
+
         </Label>
+        <Button x:Name="button" Content="Button" Width="75" Height="75" Grid.Column="1" Margin="28,10,300,333" Click="button_Click_1"/>
+
     </Grid>
 
 </Window>

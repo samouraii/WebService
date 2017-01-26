@@ -17,17 +17,23 @@ namespace ConnectionDb.classe
         [DataMember]
         private string nom;
         [DataMember]
-        private string numTva;
+        private string numtva;
+        [DataMember]
+        private User[] user;
 
         //private string typeDeVente;
 
-      
+
 
         public int Id
         {
             get
             {
                 return id;
+            }
+            set
+            {
+                id = value;
             }
 
            
@@ -46,16 +52,16 @@ namespace ConnectionDb.classe
             }
         }
 
-        public string NumTva
+        public string Numtva
         {
             get
             {
-                return numTva;
+                return numtva;
             }
 
             set
             {
-                numTva = value;
+                numtva = value;
             }
         }
 
@@ -71,6 +77,19 @@ namespace ConnectionDb.classe
             set
             {
                 numdossier = value;
+            }
+        }
+
+        public User[] User
+        {
+            get
+            {
+                return user;
+            }
+
+            set
+            {
+                user = value;
             }
         }
     }

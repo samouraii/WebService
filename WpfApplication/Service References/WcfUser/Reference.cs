@@ -23,6 +23,9 @@ namespace WpfApplication.WcfUser {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WpfApplication.WcfUser.Client[] clientField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -41,6 +44,19 @@ namespace WpfApplication.WcfUser {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WpfApplication.WcfUser.Client[] client {
+            get {
+                return this.clientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.clientField, value) != true)) {
+                    this.clientField = value;
+                    this.RaisePropertyChanged("client");
+                }
             }
         }
         
@@ -92,6 +108,115 @@ namespace WpfApplication.WcfUser {
                 if ((object.ReferenceEquals(this.usernameField, value) != true)) {
                     this.usernameField = value;
                     this.RaisePropertyChanged("username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Client", Namespace="http://schemas.datacontract.org/2004/07/ConnectionDb.classe")]
+    [System.SerializableAttribute()]
+    public partial class Client : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numdossierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string numtvaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WpfApplication.WcfUser.User[] userField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nom {
+            get {
+                return this.nomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nomField, value) != true)) {
+                    this.nomField = value;
+                    this.RaisePropertyChanged("nom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numdossier {
+            get {
+                return this.numdossierField;
+            }
+            set {
+                if ((this.numdossierField.Equals(value) != true)) {
+                    this.numdossierField = value;
+                    this.RaisePropertyChanged("numdossier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string numtva {
+            get {
+                return this.numtvaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.numtvaField, value) != true)) {
+                    this.numtvaField = value;
+                    this.RaisePropertyChanged("numtva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WpfApplication.WcfUser.User[] user {
+            get {
+                return this.userField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userField, value) != true)) {
+                    this.userField = value;
+                    this.RaisePropertyChanged("user");
                 }
             }
         }
@@ -190,10 +315,15 @@ namespace WpfApplication.WcfUser {
         System.Threading.Tasks.Task<WpfApplication.WcfUser.Error> deleteAsync(WpfApplication.WcfUser.User value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/WcfUser/select", ReplyAction="http://tempuri.org/WcfUser/selectResponse")]
-        WpfApplication.WcfUser.User[] select();
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WpfApplication.WcfUser.User))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WpfApplication.WcfUser.Client[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WpfApplication.WcfUser.Client))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WpfApplication.WcfUser.User[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WpfApplication.WcfUser.Error))]
+        WpfApplication.WcfUser.User[] select(object obj2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/WcfUser/select", ReplyAction="http://tempuri.org/WcfUser/selectResponse")]
-        System.Threading.Tasks.Task<WpfApplication.WcfUser.User[]> selectAsync();
+        System.Threading.Tasks.Task<WpfApplication.WcfUser.User[]> selectAsync(object obj2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -247,12 +377,12 @@ namespace WpfApplication.WcfUser {
             return base.Channel.deleteAsync(value);
         }
         
-        public WpfApplication.WcfUser.User[] select() {
-            return base.Channel.select();
+        public WpfApplication.WcfUser.User[] select(object obj2) {
+            return base.Channel.select(obj2);
         }
         
-        public System.Threading.Tasks.Task<WpfApplication.WcfUser.User[]> selectAsync() {
-            return base.Channel.selectAsync();
+        public System.Threading.Tasks.Task<WpfApplication.WcfUser.User[]> selectAsync(object obj2) {
+            return base.Channel.selectAsync(obj2);
         }
     }
 }

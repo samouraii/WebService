@@ -12,3 +12,5 @@ C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\Wpf
 C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfApplication\obj\Debug\WpfApplication.exe
 C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfApplication\obj\Debug\WpfApplication.pdb
 C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfApplication\obj\Debug\WpfApplication.csprojResolveAssemblyReference.cache
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfApplication\obj\Debug\achat.g.cs
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WpfApplication\obj\Debug\achat.baml

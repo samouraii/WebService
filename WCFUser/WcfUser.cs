@@ -22,7 +22,7 @@ namespace WCFUser
         [OperationContract]
         Error delete(User value);
         [OperationContract]
-        User[] select();
+        User[] select(object obj2 =null);
 
       
 

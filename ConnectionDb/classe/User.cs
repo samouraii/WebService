@@ -18,6 +18,8 @@ namespace ConnectionDb.classe
         private int id;
         [DataMember]
         private string salt;
+        [DataMember]
+        private Client[] client;
 
 
         public string Username
@@ -72,6 +74,20 @@ namespace ConnectionDb.classe
             }
         }
 
+    
+
+        public Client[] Client
+        {
+            get
+            {
+                return client;
+            }
+
+            set
+            {
+                client = value;
+            }
+        }
 
         public bool verification()
         {

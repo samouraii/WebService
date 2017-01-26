@@ -21,18 +21,7 @@ namespace ConnectionDb
             return string.Format("You entered: {0}", value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
+       
         public bool initialise()
         {
             ConnexionDb.initialise();
@@ -45,17 +34,26 @@ namespace ConnectionDb
            return ConnexionDb.insert(obj);
         }
 
-        public object[] select(object obj)
+        public object[] select(object obj, object obj2 = null)
         {
             ConnexionDb.initialise();
              
-            return ConnexionDb.select(obj).ToArray();
+            return ConnexionDb.select(obj,obj2).ToArray();
         }
         public Error delete(object obj)
         {
             ConnexionDb.initialise();
 
             return ConnexionDb.delete(obj);
+        }
+
+        public User selectUser(User user)
+        {
+            ConnexionDb.initialise();
+            User user2 =ConnexionDb.selectUser(user);
+            return user2;
+            
+
         }
 
 
