@@ -1,0 +1,6 @@
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfAuthentification\bin\WcfAuthentification.dll.config
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfAuthentification\bin\WcfAuthentification.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfAuthentification\bin\WcfAuthentification.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfAuthentification\obj\Debug\WcfAuthentification.dll
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfAuthentification\obj\Debug\WcfAuthentification.pdb
+C:\Users\adrie\OneDrive\Documents\Visual Studio 2015\Projects\ProjetTechInfo\WcfAuthentification\obj\Debug\WcfAuthentification.csprojResolveAssemblyReference.cache

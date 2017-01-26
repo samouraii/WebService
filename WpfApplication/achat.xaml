@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApplication.achat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication"
+        mc:Ignorable="d"
+        Title="achat" Height="486.811" Width="443.878" Loaded="Window_Loaded">
+    <Grid x:Name="rr">
+        <Grid x:Name="gridChoice"  Visibility="Hidden">
+            <DataGrid x:Name="choice" HorizontalAlignment="Left" Margin="0,7,0,0" ItemsSource="{Binding Source=WcfClient.Client}"  MouseDoubleClick="dataUser_MouseDoubleClick" AutoGenerateColumns="False" VerticalAlignment="Top" Height="449" Width="436" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding id}" Width="Auto" />
+                    <DataGridTextColumn Header="numdossier" Binding="{Binding numdossier}"/>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding nom}"/>
+                    <DataGridTextColumn Header="Numéro Tva" Binding="{Binding numtva}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+        <Grid x:Name="gridInsert" Visibility="Hidden">
+            <Label x:Name="label" Content="TVA:" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,-0.251" Width="70"/>
+            <Label x:Name="label2" Content="Prix hors tva:" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,-0.251" Width="70"/>
+            <Label x:Name="label3" Content="Voiture:" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,-0.251" Width="70"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="96,52,0,0" TextWrapping="Wrap" Text="{Binding tva}" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
+            <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="96,84,0,0" TextWrapping="Wrap" Text="{Binding prixhtv}" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
+            <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="87" Margin="96,112,0,0" TextWrapping="Wrap" Text="{Binding voiture}" VerticalAlignment="Top" Width="307"/>
+            <Button x:Name="button" Content="valider" HorizontalAlignment="Left" Margin="89,254,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+            <Button x:Name="button1" Content="supprimer" Visibility="Hidden" HorizontalAlignment="Left" Margin="211,254,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+            <Label x:Name="label1" Content="Prix:" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.437,-0.144"/>
+            <Label x:Name="prix" Content="Label" HorizontalAlignment="Left" Margin="96,214,0,0" VerticalAlignment="Top"/>
+
+
+        </Grid>
+
+        <Grid x:Name="gridhistorique"  Visibility="Hidden" >
+            <DataGrid x:Name="histo" HorizontalAlignment="Left" Margin="0,7,0,0" ItemsSource="{Binding Source=WcfClient.Transaction}"  MouseDoubleClick="datahisto_MouseDoubleClick" AutoGenerateColumns="False" VerticalAlignment="Top" Height="449" Width="436" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding id}" Width="Auto" />
+                    <DataGridTextColumn Header="tva" Binding="{Binding tva}"/>
+                    <DataGridTextColumn Header="Montant" Binding="{Binding prixhtv}"/>
+                    <DataGridTextColumn Header="voiture" Binding="{Binding voiture}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+    </Grid>
+
+</Window>
