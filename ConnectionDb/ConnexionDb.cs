@@ -150,10 +150,17 @@ namespace ConnectionDb
                             variable += " , ";
                             if (!update) value += ",";
                         }
-                        variable += i.Name.ToLower();
-                        value += "@" + i.Name;
-                        Params.Add(i.Name);
-                        Values.Add((String)i.GetValue(obj).ToString());
+                        try {
+                            variable += i.Name.ToLower();
+                            value += "@" + i.Name;
+                            Params.Add(i.Name);
+                            Values.Add((String)i.GetValue(obj).ToString());
+                        }
+                        catch (Exception e)
+                        {
+                          
+                            return new Error(300,"impoosible d'ecrire"); 
+                        }
                         if (update)
                         {
                             variable += "=" + value;

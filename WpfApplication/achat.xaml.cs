@@ -105,25 +105,34 @@ namespace WpfApplication
 
             temporaireTransaction.client = client;
             //tr.client = client;
-            bddClient.insertT(temporaireTransaction);
-
-           // MessageBox.Show(temporaireTransaction.tva + "");
-            // wcfClients.enable = true;
-            if (mode == 0)
+            
+            if (temporaireTransaction.prixhtv !=0 && temporaireTransaction.tva != null && temporaireTransaction.voiture != null && temporaireTransaction.voiture.Length >= 3)
             {
-                temporaireTransaction=null;
-                //tr.client = client;
-                this.DataContext = temporaireTransaction;
-                MessageBox.Show("insertion avec succes");
+                Error err = bddClient.insertT(temporaireTransaction);
+
+                // MessageBox.Show(temporaireTransaction.tva + "");
+                // wcfClients.enable = true;
+                if (mode == 0)
+                {
+                    temporaireTransaction = null;
+                    //tr.client = client;
+                    this.DataContext = temporaireTransaction;
+                    if (err.code <= 100)
+                    MessageBox.Show("insertion avec succes");
+                    else MessageBox.Show(err.message);
+                }
+                else
+                {
+                    Transaction[] tra = bddClient.selectT(client);
+                    histo.ItemsSource = tra;
+                    gridInsert.Visibility = Visibility.Hidden;
+                    gridhistorique.Visibility = Visibility.Visible;
+                }
             }
             else
             {
-                Transaction[] tra = bddClient.selectT(client);
-                histo.ItemsSource = tra;
-                gridInsert.Visibility = Visibility.Hidden;
-                gridhistorique.Visibility = Visibility.Visible;
+                MessageBox.Show("faut tout remplire correctement");
             }
-          
         }
         /*=============================================
            Gestion du double clique sur l'historique pour modifier, et afficher l'historique 

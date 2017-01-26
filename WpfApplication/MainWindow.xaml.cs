@@ -40,9 +40,13 @@ namespace WpfApplication
 
             menu.IsEnabled = false;
             GridLogin.Visibility = Visibility.Visible;
+            temporaireClient = new wcfClient.Client();
 
 
         }
+        /*
+                Nettoyage de l'ecran
+            */
         private void zero()
         {
             clearError();
@@ -60,12 +64,13 @@ namespace WpfApplication
             this.zero();
         }
 
+        //gestion du menu
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             zero();
             UserC.Visibility = Visibility.Visible;
         }
-
+        // gestion création utilisateur
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             WcfUser.User create = new WcfUser.User();
@@ -75,7 +80,7 @@ namespace WpfApplication
             create.username = this.username.Text;
             WcfUser.Error err = new WcfUser.Error();
 
-            if (pass1.Password == pass2.Password && pass1.Password != null && temporaireUser == null)
+            if (pass1.Password == pass2.Password && pass1.Password != null && pass1.Password.Length >=3 && create.username != null && create.username.Length >= 3 && temporaireUser == null)
             {
 
                 create.mdp = pass1.Password;
@@ -85,7 +90,7 @@ namespace WpfApplication
             }
             else if (temporaireUser != null)
             {
-                if ((pass1.Password != null || pass1.Password != "") && pass1.Password == pass2.Password)
+                if ((pass1.Password != null || pass1.Password != "") && pass1.Password == pass2.Password && pass1.Password.Length >= 3 && create.username != null && create.username.Length >= 3)
                 {
                     temporaireUser.mdp = pass1.Password;
                 }
@@ -94,7 +99,7 @@ namespace WpfApplication
             }
             else
             {
-                Errerur("Les 2 mots de passe doivent être les mêmes");
+                Errerur("Les 2 mots de passe doivent être les mêmes, ou vous devez compléter tout les champs");
             }
             if (err.code == 1)
             {
@@ -110,11 +115,13 @@ namespace WpfApplication
                 Errerur(err.code + " " + err.message);
             }
         }
-
+        // affichage des erreurs
         private void Errerur(string e)
         {
+            clearError();
             Error.Content += e + "\n";
         }
+        //nettoyages des erreurs
         private void clearError()
         {
             Error.Content = "";
@@ -129,7 +136,7 @@ namespace WpfApplication
                 Console.WriteLine(i.username + " " + i.id);
             }
         }
-
+        //gestion menu modifier user
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             zero();
@@ -139,7 +146,7 @@ namespace WpfApplication
             UserM.Visibility = Visibility.Visible;
 
         }
-
+        //gestion du tableau user
         private void dataUser_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             zero();
@@ -155,7 +162,7 @@ namespace WpfApplication
             pass2.Password = "";
 
         }
-
+        //gestion suppression user
         private void button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult dialogResult = MessageBox.Show("Voulez vous suprimez l'utilisateur?", "Suppression", MessageBoxButton.YesNo);
@@ -166,21 +173,20 @@ namespace WpfApplication
             zero();
             UserM.Visibility = Visibility.Visible;
         }
-
+        //gestion création client
         private void ClientCree(object sender, RoutedEventArgs e)
         {
             wcfClient.Client wcfClients = new wcfClient.Client();
-            if (temporaireClient != null)  wcfClients = temporaireClient;
+            wcfClients = temporaireClient;
              
             // wcfClients.enable = true;
-            wcfClients.nom = clientName.Text;
+           
             int temp = -1;
 
       
             
-            int.TryParse(clientID.Text, out temp);
-            wcfClients.numdossier = temp;
-            wcfClients.numtva = clientTva.Text;
+           
+            
             wcfClient.User[] u = new wcfClient.User[1];
             u[0] = new wcfClient.User();
             u[0].username = jeton.user.username;
@@ -189,19 +195,52 @@ namespace WpfApplication
             wcfClient.Error erreur = new wcfClient.Error();
             erreur.code = 4;
             erreur.message = "succes création";
-            if (temp >= 0)
+            if (temporaireClient.numdossier !=0 && temporaireClient.nom !=null && temporaireClient.nom.Length >= 3 && temporaireClient.numtva != null && temporaireClient.numtva.Length == 12)
             {
-                erreur = bddClient.insert(wcfClients);
+                if (tva(temporaireClient.numtva))
+                {
+                    erreur = bddClient.insert(wcfClients);
+                    this.zero();
+                    Errerur(erreur.message);
+                }
+                else
+                {
+                    MessageBox.Show("Code TVA pas correcte");
+                }
             }
-            this.zero();
-            Errerur(erreur.message);
+            else
+            {
+                MessageBox.Show("faut tout remplir");
+            }
+           
             
+        }
+        private bool tva(string tva)
+        {
+            string start = tva.Remove(3);
+            if (start.ToLower() == "be0")
+            {
+                string code = tva.Substring(3, 7);
+                string verif = tva.Substring(10);
+
+                int total, tVerif;
+                int.TryParse(code, out total);
+                int.TryParse(verif, out tVerif);
+
+                total = 97 - total % 97;
+                if (total == tVerif) return true;
+            }
+            return false;
         }
 
         private void creeClientForm(object sender, RoutedEventArgs e)
         {
             zero();
+            
+            temporaireClient = new wcfClient.Client();
+            DataContext = temporaireClient;
             GridClient.Visibility = Visibility.Visible;
+           
 
         }
 
